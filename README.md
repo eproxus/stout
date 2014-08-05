@@ -1,7 +1,7 @@
 Stout
 =====
 
-**St**ylized **Out**put for [Lager](https://github.com/basho/lager).
+<em>St</em>ylized <em>Out</em>put for [Lager](https://github.com/basho/lager).
 
 Stout is a better version of the `lager_default_formatter` formatter. It
 follows the same pattern, a list of either IO data or tags. In Stout, each tag
