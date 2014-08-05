@@ -22,7 +22,10 @@ Which would yield:
 
 ![Example](https://raw.github.com/eproxus/stout/master/screenshot.png)
 
-The main difference is color support (explicit for all tags and automatic for severity) and the possibility to format a tag (using `{format, FmtStr}` that will only be applied if the tag exists. For example, wrapping a tag in `[` and `]` using `{format, "[~s]"}` would only show the brackets if the tag exists.
+The main difference is color support (explicit for all tags and automatic for
+severity) and the possibility to format a tag (using `{format, FmtStr}` that
+will only be applied if the tag exists. For example, wrapping a tag in `[` and
+`]` using `{format, "[~s]"}` would only show the brackets if the tag exists.
 
 To summarize, the config should be a list containing one or more of:
 * An IO data item (`binary()`, `list()`, or `char()`)
@@ -33,6 +36,13 @@ To summarize, the config should be a list containing one or more of:
 
 Options
 -------
+
+Options are applied one after the other in the sequence they appear in. The
+order can be significant depending on which options are used. For example,
+adding padding first and then a color would color the padding (`[{format, "~s
+"}, blue]`). Coloring first and padding afterwards, would only color the text
+and not the padding (`[blue, {format, "~s "}]`) because the padding is applied
+*around* the alread blue text.
 
 The type `option()` can be one of:
 * `upper` Transform to upper case.
