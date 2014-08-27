@@ -59,10 +59,17 @@ get(severity, Msg) ->
     {tag, lager_msg:severity_as_int(Msg), atom_to_list(lager_msg:severity(Msg))};
 get(message, Msg) ->
     lager_msg:message(Msg);
+get(pid, Msg) ->
+    Pid = proplists:get_value(pid, lager_msg:metadata(Msg)),
+    case Pid of
+        Pid when is_pid(Pid)  -> pid_to_list(Pid);
+        Pid when is_list(Pid) -> Pid;
+        emulator              -> "<emulator>";
+        undefined             -> undefined
+    end;
 get(Key, Msg) ->
     Meta = lager_msg:metadata(Msg),
     proplists:get_value(Key, Meta).
-
 
 format_opts({tag, _Tag, Item}, []) ->
     Item;
