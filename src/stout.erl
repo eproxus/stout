@@ -38,6 +38,10 @@ format(Msg, Config, _WAT) ->
 
 print(_Msg, []) ->
     [];
+print(Msg, [{'$metadata', Format, Skip}|Config]) ->
+    {_, Metadata} = proplists:split(lager_msg:metadata(Msg), Skip),
+    Formatted = join(format_metadata(Metadata, Format), " "),
+    [Formatted|print(Msg, Config)];
 print(Msg, [{Key, Options}|Config]) ->
     case get(Key, Msg) of
         undefined -> print(Msg, Config);
@@ -59,17 +63,33 @@ get(severity, Msg) ->
     {tag, lager_msg:severity_as_int(Msg), atom_to_list(lager_msg:severity(Msg))};
 get(message, Msg) ->
     lager_msg:message(Msg);
-get(pid, Msg) ->
-    Pid = proplists:get_value(pid, lager_msg:metadata(Msg)),
-    case Pid of
+get(Key, Msg) ->
+    Meta = lager_msg:metadata(Msg),
+    process(Key, proplists:get_value(Key, Meta)).
+
+process(pid, Value) ->
+    case Value of
         Pid when is_pid(Pid)  -> pid_to_list(Pid);
         Pid when is_list(Pid) -> Pid;
         emulator              -> "<emulator>";
         undefined             -> undefined
     end;
-get(Key, Msg) ->
-    Meta = lager_msg:metadata(Msg),
-    proplists:get_value(Key, Meta).
+process(_Key, Value) ->
+    Value.
+
+format_metadata([], _Formats) ->
+    [];
+format_metadata([{Key, Value}|Metadata], Formats) ->
+    Format = case proplists:get_value(Key, Formats) of
+        undefined -> {format, default_format(Key)};
+        Defined   -> Defined
+    end,
+    [format_opts(process(Key, Value), Format)|format_metadata(Metadata, Formats)].
+
+default_format(pid) ->
+    "pid=~s";
+default_format(Key) ->
+    iolist_to_binary(io_lib:format("~p=~~p", [Key])).
 
 format_opts({tag, _Tag, Item}, []) ->
     Item;
@@ -131,3 +151,5 @@ lower([C|Str]) when is_integer(C), 16#F8 =< C, C =< 16#FE ->
     [C + 32|lower(Str)];
 lower([C|Str]) ->
     [C|lower(Str)].
+
+join([Head|Tail], Separator) -> [Head|[[Separator, Item] || Item <- Tail]].
