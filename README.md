@@ -1,5 +1,7 @@
 [![Travis][travis badge]][travis] [![Hex.pm Version][hex version badge]][hex] [![Hex.pm License][hex license badge]][hex] [![Erlang Versions][erlang version badge]][travis]
 
+<img src="http://hopworksbeer.com/wp-content/uploads/2015/07/HUB_Site_Pint_STOUT.jpg" height="96">
+
 # Stout
 
 <strong>St</strong>ylized <strong>out</strong>put for [Lager](https://github.com/basho/lager).
