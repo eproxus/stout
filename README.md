@@ -143,4 +143,4 @@ configuration for Lager:
 [hex]: https://hex.pm/packages/stout
 [hex version badge]: https://img.shields.io/hexpm/v/stout.svg?style=flat-square
 [hex license badge]: https://img.shields.io/hexpm/l/stout.svg?style=flat-square
-[erlang version badge]: https://img.shields.io/badge/erlang-17.5%20to%2019.2-blue.svg
+[erlang version badge]: https://img.shields.io/badge/erlang-17.5%20to%2019.2-blue.svg?style=flat-square
