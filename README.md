@@ -1,3 +1,5 @@
+[![Travis][travis badge]][travis]
+
 # Stout
 
 <strong>St</strong>ylized <strong>out</strong>put for [Lager](https://github.com/basho/lager).
@@ -133,3 +135,7 @@ configuration for Lager:
     ]}
 ]}
 ```
+
+
+[travis]: https://travis-ci.org/eproxus/stout
+[travis badge]: https://img.shields.io/travis/eproxus/stout.svg?style=flat-square
