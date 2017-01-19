@@ -1,4 +1,4 @@
-[![Travis][travis badge]][travis] [![Hex.pm Version][hex version badge]][hex] [![Hex.pm License][hex license badge]][hex] [![Erlang Versions][erlang version badge]][travis]
+[![Travis][travis badge]][travis] [![Hex.pm Version][hex version badge]][hex] [![Hex.pm License][hex license badge]][hex] [![Erlang Versions][erlang version badge]][travis][![Build Tool][build tool]][hex]
 
 <img src="http://hopworksbeer.com/wp-content/uploads/2015/07/HUB_Site_Pint_STOUT.jpg" height="96">
 
@@ -146,3 +146,4 @@ configuration for Lager:
 [hex version badge]: https://img.shields.io/hexpm/v/stout.svg?style=flat-square
 [hex license badge]: https://img.shields.io/hexpm/l/stout.svg?style=flat-square
 [erlang version badge]: https://img.shields.io/badge/erlang-17.5%20to%2019.2-blue.svg?style=flat-square
+[build tool]: https://img.shields.io/badge/build%20tool-rebar3-orange.svg?style=flat-square
