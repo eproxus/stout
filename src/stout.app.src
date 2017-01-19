@@ -1,5 +1,10 @@
 {application, stout, [
-  {description, "Stylized Output for Lager"},
-  {vsn, "1.0"},
-  {applications, [kernel, stdlib, lager, color]}
+    {description, "Stylized Output for Lager"},
+    {vsn, "1.0"},
+    {applications, [kernel, stdlib, lager, color]},
+
+    % Hex package metadata
+    {maintainers, ["Adam Lindberg"]},
+    {licenses, ["MIT"]},
+    {links, [{"GitHub", "https://github.com/eproxus/stout"}]}
 ]}.
