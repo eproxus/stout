@@ -1,0 +1,13 @@
+language: erlang
+
+install: true
+before_script:
+  - wget https://s3.amazonaws.com/rebar3/rebar3
+  - chmod +x rebar3
+env: PATH=".:$PATH"
+script: rebar3 eunit
+
+otp_release:
+  - 19.2
+  - 18.4
+  - 17.5
