@@ -9,5 +9,5 @@ script: rebar3 eunit
 
 otp_release:
   - 19.2
-  - 18.4
+  - 18.3
   - 17.5
