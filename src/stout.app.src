@@ -1,6 +1,6 @@
 {application, stout, [
     {description, "Stylized Output for Lager"},
-    {vsn, "1.0"},
+    {vsn, "1.0.0"},
     {applications, [kernel, stdlib, lager, color]},
 
     % Hex package metadata
