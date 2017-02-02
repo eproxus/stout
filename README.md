@@ -1,4 +1,8 @@
-[![Travis][travis badge]][travis] [![Hex.pm Version][hex version badge]][hex] [![Hex.pm License][hex license badge]][hex] [![Erlang Versions][erlang version badge]][travis] [![Build Tool][build tool]][hex]
+[![Travis][travis badge]][travis]
+[![Hex.pm Version][hex version badge]][hex]
+[![Hex.pm License][hex license badge]][hex]
+[![Erlang Versions][erlang version badge]][travis]
+[![Build Tool][build tool]][hex]
 
 <img src="http://hopworksbeer.com/wp-content/uploads/2015/07/HUB_Site_Pint_STOUT.jpg" height="96">
 
